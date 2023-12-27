@@ -51,7 +51,8 @@ public class FragmentAdd extends Fragment {
                     Toast.makeText(requireActivity(), "Enter Name or Price", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.secondFragment, f).commit();
+
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.secondFragment, f).addToBackStack(null).commit();
                     databaseHelper.addProduct(etname.getText().toString(), Integer.parseInt(etprice.getText().toString()));
                     etname.setText("");
                     etprice.setText("");

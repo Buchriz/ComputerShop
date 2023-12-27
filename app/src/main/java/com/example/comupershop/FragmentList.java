@@ -41,7 +41,6 @@ public class FragmentList extends Fragment {
 
         if (bundle != null)
         {
-
             int n = cursor.getCount();
             cursor.moveToFirst();
 
