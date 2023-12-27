@@ -35,23 +35,21 @@ public class FragmentList extends Fragment {
         view = inflater.inflate(R.layout.fragment_list, container, false);
 
         tableLayout = view.findViewById(R.id.tableLayout);
-        Bundle bundle =  getArguments();
         databaseHelper = new MyDatabaseHelper(requireContext());
         Cursor cursor = databaseHelper.readAllData();
 
-        if (bundle != null)
-        {
-            int n = cursor.getCount();
-            cursor.moveToFirst();
 
-            for (int i = 0; i < n; i++)
-            {
-                String name = cursor.getString(1);
-                int price = cursor.getInt(2);
-                addTableRow(name, price);
-                cursor.moveToNext();
-            }
+        int n = cursor.getCount();
+        cursor.moveToFirst();
+
+        for (int i = 0; i < n; i++)
+        {
+            String name = cursor.getString(1);
+            int price = cursor.getInt(2);
+            addTableRow(name, price);
+            cursor.moveToNext();
         }
+
 
         return view;
     }
@@ -112,6 +110,8 @@ public class FragmentList extends Fragment {
         }
         return str;
     }
+
+
 
     @Override
     public void onDestroy()

@@ -42,9 +42,7 @@ public class FragmentAdd extends Fragment {
             @Override
             public void onClick(View view)
             {
-                Bundle bundle = new Bundle();
                 FragmentList f = new FragmentList();
-                f.setArguments(bundle);
 
                 if(etname.getText().toString().length() == 0 || etprice.getText().toString().length() == 0)
                 {
