@@ -1,9 +1,7 @@
 package com.example.comupershop;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,11 +15,8 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-
-import java.util.List;
 
 
 public class FragmentList extends Fragment {
@@ -62,23 +57,31 @@ public class FragmentList extends Fragment {
     }
 
 
-    private void addTableRow(String name, int price, int id)
+    private void addTableRow(String namet, int pricet, int id)
     {
         // Check if the TableRow with the given ID already exists
         TableRow existingRow = tableLayout.findViewWithTag(id);
 
-        if (existingRow != null) {
-            // Update the existing TableRow
-            TextView tvName = existingRow.findViewWithTag("name");
-            TextView tvPrice = existingRow.findViewWithTag("price");
-
-            if (name.length() > 10) {
-                tvName.setText(DownRow(name));
-            } else {
-                tvName.setText(name);
+        if (existingRow != null)
+        {
+            if(pricet !=-100)
+            {
+                TextView tvName = existingRow.findViewWithTag("name");
+                TextView tvPrice = existingRow.findViewWithTag("price");
+                if (namet.length() > 10)
+                {
+                    tvName.setText(DownRow(namet));
+                }
+                else
+                {
+                    tvName.setText(namet);
+                }
+                tvPrice.setText(String.valueOf(pricet));
             }
-
-            tvPrice.setText(String.valueOf(price));
+            else
+            {
+                tableLayout.removeView(tableLayout.findViewWithTag(id));
+            }
         }
         else
         {
@@ -95,10 +98,10 @@ public class FragmentList extends Fragment {
             tvName.setLayoutParams(ll);
 
 
-            if (name.length() > 10) {
-                tvName.setText(DownRow(name));
+            if (namet.length() > 10) {
+                tvName.setText(DownRow(namet));
             } else {
-                tvName.setText(name);
+                tvName.setText(namet);
             }
             tvName.setTextColor(Color.BLACK);
             tvName.setTextSize(26);
@@ -116,7 +119,7 @@ public class FragmentList extends Fragment {
             update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    customDialog(update.getId(), name, price);
+                    customDialog(update.getId(), namet, pricet);
                 }
             });
 
@@ -132,7 +135,9 @@ public class FragmentList extends Fragment {
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     databaseHelper.deleteOneRow(String.valueOf(id));
+                    addTableRow("",-100,id);
                 }
             });
 
@@ -142,7 +147,7 @@ public class FragmentList extends Fragment {
             tvPrice.setTextColor(Color.BLACK);
             tvPrice.setTextSize(26);
             tvPrice.setGravity(Gravity.CENTER);
-            tvPrice.setText("" + price);
+            tvPrice.setText("" + pricet);
 
             row.addView(delete);
             row.addView(update);
@@ -183,7 +188,7 @@ public class FragmentList extends Fragment {
         Button btnClose = dialog.findViewById(R.id.btnClose);
 
         upname.setText(name);
-        upprice.setText(""+price);
+        upprice.setText(String.valueOf(price));
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
