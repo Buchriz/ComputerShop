@@ -12,14 +12,4 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    public void onDestroy()
-    {
-        super.onDestroy();
-        MyDatabaseHelper databaseHelper = new MyDatabaseHelper(this);
-        if (databaseHelper != null)
-        {
-            databaseHelper.deleteAllData();
-        }
-    }
 }

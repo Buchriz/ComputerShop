@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#aaa"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="שם"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+
+        />
+
+    <EditText
+        android:id="@+id/etupName"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="מחיר"
+        android:layout_marginTop="150dp"
+        android:textSize="30dp"
+
+        />
+
+    <EditText
+        android:id="@+id/etupPrice"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="200dp"
+        android:inputType="numberDecimal"
+        />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:text="עדכן"
+        android:textSize="30dp"
+        android:layout_marginLeft="50dp"
+        />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:text="ביטול"
+        android:textSize="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        />
+
+</RelativeLayout>
