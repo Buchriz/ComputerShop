@@ -29,6 +29,7 @@
         android:layout_marginTop="55dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:maxLength="10"
         />
 
     <TextView
@@ -54,6 +55,7 @@
         android:layout_marginTop="140dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:maxLength="10"
         />
 
     <Button

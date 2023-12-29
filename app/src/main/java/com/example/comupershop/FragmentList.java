@@ -68,7 +68,7 @@ public class FragmentList extends Fragment {
             {
                 TextView tvName = existingRow.findViewWithTag("name");
                 TextView tvPrice = existingRow.findViewWithTag("price");
-                if (namet.length() > 10)
+                if (namet.length() > 5)
                 {
                     tvName.setText(DownRow(namet));
                 }
@@ -98,7 +98,7 @@ public class FragmentList extends Fragment {
             tvName.setLayoutParams(ll);
 
 
-            if (namet.length() > 10) {
+            if (namet.length() > 5) {
                 tvName.setText(DownRow(namet));
             } else {
                 tvName.setText(namet);
@@ -166,7 +166,7 @@ public class FragmentList extends Fragment {
         {
             index++;
             str += name.charAt(i);
-            if (index >= 10)
+            if (index >= 5)
             {
                 str += "\n";
                 index = 0;
